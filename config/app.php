@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
 
+        LaravelFrontendPresets\ArgonPreset\ArgonPresetServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
