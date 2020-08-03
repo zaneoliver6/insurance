@@ -698,7 +698,7 @@
   * Add a link to the list of all tz database time zones (#1824)
   * Clean-up and improve documentation `feed.xml` (#2192)
   * Remove duplicate entry in list of third-party plugins (#2206)
-  * Reduce the whitespace in the favicon. (#2213)
+  * Reduce the whitespace in the #. (#2213)
   * Add `jekyll-page-collections` to list of third-party plugins (#2215)
   * Add a cross-reference about `post_url` (#2243)
   * Add `jekyll-live-tiles` to list of third-party plugins (#2250)
@@ -772,7 +772,7 @@
 
 ### Site Enhancements
   * Fixed case of a word in the Jekyll v1.3.0 release post (#1762)
-  * Fixed the mime type for the favicon (#1772)
+  * Fixed the mime type for the # (#1772)
 
 ## 1.3.1 / 2013-11-26
 
