@@ -25,4 +25,24 @@ class Customer extends Model
         'created_by',
         'company_id',
     ];
+
+    public function address()
+    {
+        return $this->hasOne('App\Address');
+    }
+
+    public function phone()
+    {
+        return $this->hasOne('App\Phone');
+    }
+
+    public function employee()
+    {
+        return $this->hasOne('App\Employee');
+    }
+
+    public function user()
+    {
+        return $this->hasOne('App\User', 'created_by');
+    }
 }

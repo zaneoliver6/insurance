@@ -103,32 +103,49 @@
                 </li> -->
 
                 <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <i class="fas fa-user text-primary"></i> {{ __('Customers') }}
+                    </a>
+                </li>
+
+                @canany(['isAdmin','isManager'])
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}">
                         <i class="fas fa-users text-primary"></i> {{ __('User Management') }}
                     </a>
                 </li>
+                @endcanany
+                
+                <li class="nav_item">
+                    <a class="nav-link" href="#logsmenu" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="logsmenu">
+                        <i class="fas fa-headset text-primary"></i> {{ __('Call Logs')}}
+                    </a>
 
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('icons') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
+                    <div class="collapse" id="logsmenu">
+                        <ul class="nav nav-sm flex-column">
+
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('calllog.index') }}">
+                                    {{ __('Show Call Logs') }}
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('calllog.create') }}">
+                                    {{ __('Create Call Log') }}
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </li>
+                @can('isAdmin')
+                <li class="nav_item">
+                    <a class="nav-link" href="{{ route('company.index') }}" >
+                        <i class="fas fa-building text-primary"></i> {{ __('Companies')}}
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('map') }}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Maps') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('table') }}">
-                      <i class="ni ni-bullet-list-67 text-default"></i>
-                      <span class="nav-link-text">Tables</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
-                    </a>
-                </li> -->
+                @endcan
             </ul>
             <!-- Divider -->
             <hr class="my-3">

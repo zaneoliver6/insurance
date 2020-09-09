@@ -14,12 +14,15 @@ class UserSeeder extends Seeder
     {
         //
         DB::table('users')->insert([
-            'name' => 'Admin Admin',
-            'email' => 'admin@insuretech.com',
+            'name'              => 'Admin Admin',
+            'email'             => 'admin@insuretech.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
-            'created_at' => now(),
-            'updated_at' => now()
+            'password'          => Hash::make('secret'),
+            'created_at'        => now(),
+            'updated_at'        => now(),
+            'company_id'        => 1,
+            'active'            => 1,
+            'role'              => 'admin'
         ]);
     }
 }

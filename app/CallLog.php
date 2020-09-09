@@ -20,4 +20,24 @@ class CallLog extends Model
         'customer_id',
         'created_by',
     ];
+
+    public function address()
+    {
+        return $this->belongsTo('App\Address');
+    }
+
+    public function phone()
+    {
+        return $this->belongsTo('App\Phone');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Customer');
+    }
 }
