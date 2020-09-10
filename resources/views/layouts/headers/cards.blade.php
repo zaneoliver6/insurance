@@ -1,6 +1,19 @@
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
+            <div class="row">
+                <div class="col">
+                    @if(isset($logs) && !empty($logs))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <span class="alert-icon"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
+                            <span class="alert-text"><strong>Alert!</strong> There are {{ $logs }} customers to follow up with. <a href="{{ route('calllog.index', ['callbacks' => 1]) }}">Click Here</a> to view them.</span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                </div>
+            </div>
             <!-- Card stats -->
             <div class="row">
                 <div class="col-xl-3 col-lg-6">

@@ -18,9 +18,9 @@ class CalllogController extends Controller
    * @param  \App\CallLog  $model
    * @return \Illuminate\View\View
    */
-   public function index()
+   public function index($callbacks = 0)
    {
-      $logs = CallLog::orderBy('id', 'desc')->paginate(10);
+      $logs = $callbacks == 0 ? CallLog::orderBy('id', 'desc')->paginate(10) : CallLog::whereDate('date_of_interest', '=', today()->toDateString())->orderBy('id', 'desc')->paginate(10);
       return view('calllogs.index', ['logs' => $logs]);
    }
    public function create() 

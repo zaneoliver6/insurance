@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\CallLog;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $logs = CallLog::whereDate('date_of_interest', '=', today()->toDateString())->count();
+        return view('home.index',['logs' => $logs]);
     }
 }

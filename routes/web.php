@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
 	// Route::get('table-list', function () {return view('pages.tables');})->name('table');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	
-	Route::get('calllogs','CalllogController@index')->name('calllog.index');
+	Route::get('calllogs/{callbacks?}','CalllogController@index')->name('calllog.index');
 	Route::get('calllog/create','CalllogController@create')->name('calllog.create');
 	Route::get('calllog/edit/{id}','CalllogController@edit')->name('calllog.edit');
 	Route::post('calllog/store','CalllogController@store')->name('calllog.store');
