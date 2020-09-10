@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\CallLog;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $logs = CallLog::whereDate('date_of_interest', '=', today()->toDateString())->count();
+        $logs = CallLog::where([['date_of_interest', '=', today()->toDateString()],['company_id','=',Auth::user()->company_id],])->count();
         return view('home.index',['logs' => $logs]);
     }
 }

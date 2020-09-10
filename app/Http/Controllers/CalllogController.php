@@ -20,7 +20,7 @@ class CalllogController extends Controller
    */
    public function index($callbacks = 0)
    {
-      $logs = $callbacks == 0 ? CallLog::orderBy('id', 'desc')->paginate(10) : CallLog::whereDate('date_of_interest', '=', today()->toDateString())->orderBy('id', 'desc')->paginate(10);
+      $logs = $callbacks == 0 ? CallLog::where('company_id','=',Auth::user()->company_id)->orderBy('id', 'desc')->paginate(10) : CallLog::where([['date_of_interest', '=', today()->toDateString()],['company_id','=',Auth::user()->company_id],])->orderBy('id', 'desc')->paginate(10);
       return view('calllogs.index', ['logs' => $logs]);
    }
    public function create() 
@@ -29,7 +29,7 @@ class CalllogController extends Controller
    }
    public function store(Request $request)
    {
-      $user                          = Auth::user();
+      $user                             = Auth::user();
       $address                          = new Address;
       $address->line1                   = $request->line1;
       $address->line2                   = $request->line2;
