@@ -9,6 +9,7 @@ use App\Address;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class CalllogController extends Controller
 {
@@ -20,7 +21,20 @@ class CalllogController extends Controller
    */
    public function index($callbacks = 0)
    {
-      $logs = $callbacks == 0 ? CallLog::where('company_id','=',Auth::user()->company_id)->orderBy('id', 'desc')->paginate(10) : CallLog::where([['date_of_interest', '=', today()->toDateString()],['company_id','=',Auth::user()->company_id],])->orderBy('id', 'desc')->paginate(10);
+
+      $logs = CallLog::query();
+
+      if($callbacks == 1)
+      {
+         $logs = $logs->where('date_of_interest', '=', today()->toDateString());
+      }
+
+      if (Gate::denies('isAdmin')) {
+         $logs = $logs->where('company_id','=',Auth::user()->company_id);
+      }
+
+      $logs = $logs->orderBy('id', 'desc')->paginate(10);
+      
       return view('calllogs.index', ['logs' => $logs]);
    }
    public function create() 
