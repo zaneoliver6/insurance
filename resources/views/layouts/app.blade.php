@@ -16,11 +16,11 @@
     <!-- Canonical SEO -->
     <link rel="canonical" href="" />
     <!--  Social tags      -->
-    <meta name="keywords" content="">
+    <meta name="keywords" content="insurance software">
     <meta name="description" content="">
     <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="">
-    <meta itemprop="description" content="">
+    <meta itemprop="name" content="Insure Tech">
+    <meta itemprop="description" content="CRM Software for Insurance companies!">
     <meta itemprop="image" content="">
     <!-- Open Graph data -->
     <!-- Google Tag Manager -->
